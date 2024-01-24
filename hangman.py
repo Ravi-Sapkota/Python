@@ -19,7 +19,7 @@ dictionary = {
     "munamadan": "A movie",
     "kusumerumal": "A movie",
     "nainabhannula": "A movie",
-    "hamitimbhai": "A movie",
+    "hamitinbhai": "A movie",
     "hostelreturns": "A movie",
     "rhythm": "Repeted pattern of sound",
 }
@@ -58,6 +58,8 @@ def hangman():
         print(display(key, guessed))
         if len(set(key)) == len(set(guessed)):
             return True
+    if attemps == 0:
+        print("Your word was '{}'".format(key))
 
 
 game = hangman()
