@@ -47,13 +47,16 @@ def hangman():
     print("Hint : " + value)
 
     while attemps > 0:
-        ch = input("\nChoose a character: ")
-        if ch in key:
-            print("Your guess is correct.")
-            guessed += ch
+        ch = input("\nChoose a character: ").lower()
+        if len(ch) == 1 and ch.isalpha():
+            if ch in key:
+                print("Your guess is correct.")
+                guessed += ch
+            else:
+                print("Your guess is wrong.")
+                attemps = attemps - 1
         else:
-            print("Your guess is wrong.")
-            attemps = attemps - 1
+            print("Wrong input. Please try a single character.")
         print(f"Attemps left = {attemps}")
         print(display(key, guessed))
         if len(set(key)) == len(set(guessed)):
