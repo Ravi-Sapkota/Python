@@ -61,7 +61,7 @@ def hangman():
         else:
             print("Wrong input. Please try a single character.")
         print(f"Attemps left = {attemps}")
-        print(guessed)
+        print("Your guesses: {}".format(guessed))
         temp = display(key, guessed)
         print(temp)
         if not "*" in temp:
@@ -72,7 +72,7 @@ def hangman():
 
 
 game = hangman()
-print("\n" * 3)
+print("\n")
 if game == 0:
     print("You lost")
 else:
