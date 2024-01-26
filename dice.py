@@ -2,6 +2,15 @@ import random
 
 board = [1, 2, 3, 4, 5, 6]
 
+balance = 0
+
+
+def financial_eligibility():
+    if balance > -100:
+        darts()
+    else:
+        print("You've already lost Rs. 100.")
+
 
 def betting_choice():
     choice = int(input("1. Sums less than 7\n2. Sums 7\n3. Sums more than 7"))
@@ -26,11 +35,10 @@ def win_condition(bet, sum):
     print("Your new balance is {}".format(balance))
     playagain = input("Do you want to play again?[y/n]").lower()
     if playagain == "y":
-        darts()
+        financial_eligibility()
 
 
 def darts():
-    balance = balance - 20
     bet = betting_choice()
     d1 = random.choice(board)
     d2 = random.choice(board)
@@ -43,7 +51,6 @@ def darts():
     win_condition(sum, bet)
 
 
-balance = 0
 print("You get 3 darts to hit on a board with numbers: 1-6.")
 print("You need to bet on wheather you'll sum up to (less than 7, 7 or more than 7)")
 print("If you bet on 7 and win then you'll win twice the money of your entry fee.")
@@ -51,5 +58,5 @@ print("If you bet on others and win then you'll win the same money of your entry
 print("If you don't make up to your bet, you'll lose your money.\n")
 print("Entry fee = 20:")
 
-darts()
+financial_eligibility()
 print(f"You have exited the game.\nYour final balance is {balance}.")
