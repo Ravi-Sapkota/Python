@@ -1,7 +1,8 @@
 import random
 
-password_choice = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 3, 3, 1]
-password = []
+password_choice = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 3, 1]
+password_list = []
+password = ""
 alphabet = [
     "a",
     "b",
@@ -32,13 +33,15 @@ alphabet = [
 ]
 special = ["@", "#", "$"]
 special_count = 0
-for i in range(16):
+for i in range(1, 16):
     if random.choice(password_choice) == 1:
-        print(random.choice(alphabet), end="")
+        password_list.append(random.choice(alphabet))
     elif random.choice(password_choice) == 2:
-        print(random.choice(alphabet).upper(), end="")
+        password_list.append(random.choice(alphabet).upper())
     else:
-        print(random.choice(special), end="")
-print()
+        password_list.append(random.choice(special))
 
-print(len(password_choice))
+for char in password_list:
+    password += char
+
+print(password)
