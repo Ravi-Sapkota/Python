@@ -4,6 +4,7 @@ used = []
 
 
 def win_condition():
+    no_of_character = 0
     if chart[0] == chart[1] == chart[2] and chart[0].isalpha():
         print(f"{chart[0]} wins the match")
         return True
@@ -28,6 +29,11 @@ def win_condition():
     if chart[2] == chart[4] == chart[6] and chart[4].isalpha():
         print(f"{chart[4]} wins the match")
         return True
+    for ch in chart:
+        if ch.isalpha():
+            no_of_character = no_of_character + 1
+    if no_of_character == 9:
+        print("It's a draw.")
 
 
 def get_position():
