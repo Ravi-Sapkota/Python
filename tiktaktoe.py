@@ -3,6 +3,33 @@ chart = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
 used = []
 
 
+def win_condition():
+    if chart[0] == chart[1] == chart[2] and chart[0].isalpha():
+        print(f"{chart[0]} wins the match")
+        return True
+    if chart[3] == chart[4] == chart[5] and chart[4].isalpha():
+        print(f"{chart[4]} wins the match")
+        return True
+    if chart[6] == chart[7] == chart[8] and chart[8].isalpha():
+        print(f"{chart[8]} wins the match")
+        return True
+    if chart[0] == chart[3] == chart[6] and chart[0].isalpha():
+        print(f"{chart[0]} wins the match")
+        return True
+    if chart[1] == chart[4] == chart[7] and chart[4].isalpha():
+        print(f"{chart[4]} wins the match")
+        return True
+    if chart[2] == chart[5] == chart[8] and chart[8].isalpha():
+        print(f"{chart[8]} wins the match")
+        return True
+    if chart[0] == chart[4] == chart[8] and chart[4].isalpha():
+        print(f"{chart[4]} wins the match")
+        return True
+    if chart[2] == chart[4] == chart[6] and chart[4].isalpha():
+        print(f"{chart[4]} wins the match")
+        return True
+
+
 def get_position():
     index = int(input("Choose the position [1-9]: "))
     while index > 9 or index < 1:
@@ -33,6 +60,8 @@ def tiktaktoe():
         position = get_position()
         chart[position - 1] = player[i % 2]
         display()
+        if win_condition() == True:
+            break
         i = i + 1
 
 
