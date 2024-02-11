@@ -1,20 +1,21 @@
 import time
 
-# Start timer
 start_time = time.perf_counter()
 no_of_word = 1
+original_text = "a quick brown fox jumps over the lazy dog"
 
-print("Enter the text on the screen:")
-text = input("\na quick brown fox jumps over the lazy dog\n")
-
-# End timer
+input_text = input(f"Enter the text\n{original_text}\n")
 end_time = time.perf_counter()
 
-for ch in text:
-    if ch == " ":
-        no_of_word = no_of_word + 1
+if original_text == input_text:
+    for ch in input_text:
+        if ch == " ":
+            no_of_word = no_of_word + 1
+else:
+    print("Your text doesn't match with given text.")
+    exit(0)
 
-# Calculate elapsed time
+
 elapsed_time = end_time - start_time
 print(
     f"No of words : {no_of_word}\nTime taken : {elapsed_time:.2f}\nWPM = {no_of_word/elapsed_time*60:.2f}"
