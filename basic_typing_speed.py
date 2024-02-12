@@ -1,22 +1,25 @@
 import time
 
-start_time = time.perf_counter()
-no_of_word = 1
 original_text = "a quick brown fox jumps over the lazy dog"
 
-input_text = input(f"Enter the text\n{original_text}\n")
-end_time = time.perf_counter()
 
-if original_text == input_text:
-    for ch in input_text:
+def results(words, time):
+    speed = words / time * 60
+    print(f"\n\nWords = {words}\nTime Taken = {time:.2f} sec\nSpeed(WPM) = {speed:.2f}")
+
+
+def user_input():
+    no_of_word = 1
+    for ch in original_text:
         if ch == " ":
             no_of_word = no_of_word + 1
-else:
-    print("Your text doesn't match with given text.")
-    exit(0)
+    start_time = time.perf_counter()
+    input_text = input(f"Rewrite the text below\n{original_text}\n")
+    end_time = time.perf_counter()
+    if original_text == input_text:
+        results(no_of_word, end_time - start_time)
+    else:
+        print("Your input text doesn't match.")
 
 
-elapsed_time = end_time - start_time
-print(
-    f"No of words : {no_of_word}\nTime taken : {elapsed_time:.2f}\nWPM = {no_of_word/elapsed_time*60:.2f}"
-)
+user_input()
